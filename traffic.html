@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Analytics</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background-color: #f0f4f8;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        h1, h2 {
+            margin-bottom: 20px;
+            color: #1a202c;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #4299e1;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #3182ce;
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: #4299e1;
+            border: 2px solid #4299e1;
+        }
+        .btn-outline:hover {
+            background-color: #4299e1;
+            color: #ffffff;
+        }
+        .metrics {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .metric {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            margin: 10px;
+            padding: 20px;
+            background-color: #ebf8ff;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .metric:hover {
+            transform: scale(1.05);
+        }
+        .metric h3 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            color: #2b6cb0;
+        }
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .feature {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        .feature img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        .map {
+            width: 100%;
+            height: 500px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .map-legend {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .map-legend h4 {
+            margin-bottom: 5px;
+        }
+        .map-legend .color-scale {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .map-legend .color-scale-bar {
+            width: 150px;
+            height: 20px;
+            background: linear-gradient(to right, #fee0d2, #fc9272, #de2d26);
+            margin-right: 10px;
+        }
+        .map-legend .scale-labels {
+            display: flex;
+            justify-content: space-between;
+            width: 150px;
+        }
+        .flow-chart {
+            width: 100%;
+            height: 200px;
+            background-color: #e0e0e0;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        @media (max-width: 768px) {
+            .metrics {
+                flex-direction: column;
+            }
+            .metric {
+                width: 100%;
+            }
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background-color: var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light-text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #47e2f7;
+            --accent-color: #ff4081;
+            --background-color: #f5f5f5;
+            --text-color: #212121;
+            --light-text: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">A2IK</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+    <section>
+    <div class="container">
+        <div class="card">
+            <h2>Get competitive insights with our website traffic checker</h2>
+            <p>Discover traffic metrics for any website. Set benchmarks. Spot trends.</p>
+            <div class="metrics">
+                <div class="metric">
+                    <h3>1.2B</h3>
+                    <p>Total Visits</p>
+                </div>
+                <div class="metric">
+                    <h3>29.5M</h3>
+                    <p>Unique Visitors</p>
+                </div>
+                <div class="metric">
+                    <h3>4.56%</h3>
+                    <p>Purchase Conversion</p>
+                </div>
+                <div class="metric">
+                    <h3>6.6</h3>
+                    <p>Pages/Visit</p>
+                </div>
+                <div class="metric">
+                    <h3>12:31</h3>
+                    <p>Avg. Visit Duration</p>
+                </div>
+                <div class="metric">
+                    <h3>40.5%</h3>
+                    <p>Bounce Rate</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="trafficChart"></canvas>
+            </div>
+            <h3>Traffic Channels</h3>
+            <div class="chart-container">
+                <canvas id="channelsChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Perfect your traffic acquisition strategy</h2>
+            <p>Understand how your competitors allocate their marketing efforts.</p>
+            <ul>
+                <li>Uncover competitor traffic sources and analyze trends across time.</li>
+                <li>Identify traffic by geo location to understand rivals' global digital investments.</li>
+            </ul>
+            <div id="geoMap" class="map"></div>
+        </div>
+
+        <div class="card">
+            <h2>Uncover web traffic journeys with real user data</h2>
+            <p>Explore user journeys and pinpoint platforms that drive the most website traffic.</p>
+            <ul>
+                <li>Explore sites audiences visit before and after landing on competitors' websites.</li>
+                <li>Discover the most promising platforms for ad placement and marketing partnerships.</li>
+            </ul>
+            <div class="flow-chart" id="userJourneyChart"></div>
+        </div>
+    </section>
+        <div class="card">
+            <h2>Check website traffic to competitor sites for insights on their top pages</h2>
+            <p>Uncover website statistics for individual pages to reveal rivals' most popular offerings and content.</p>
+            <ul>
+                <li>Reveal which products/services and content assets your competitors actively promote and see how they attract web traffic.</li>
+                <li>Estimate competitors' conversion rates by unwrapping website traffic to sign-in, log-in, checkout, and thank you pages.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Get full competitive research coverage</h2>
+            <p>Set your marketing strategies for maximum impact with all-encompassing competitive intel and website traffic analysis.</p>
+            <div class="features">
+                <div class="feature">
+                    <img src="https://banner2.cleanpng.com/20180926/lbl/kisspng-world-map-globe-computer-icons-vector-graphics-nyhus-communications-pr-public-affairs-executi-1713931398688.webp" alt="Globe icon">
+                    <h3>Check website traffic by geo (country and subcontinent)</h3>
+                    <p>Unwrap the most promising markets and gather user data for location based promos.</p>
+                </div>
+                <div class="feature">
+                    <img src="/placeholder.svg?height=50&width=50" alt="Magnifying glass icon">
+                    <h3>Unwrap traffic stats for various subdomains</h3>
+                    <p>Compare website statistics for regional versions of competitor sites.</p>
+                </div>
+                <div class="feature">
+                    <img src="/placeholder.svg?height=50&width=50" alt="Chart icon">
+                    <h3>Perform bulk web traffic analysis</h3>
+                    <p>Check competitors' and potential partners' site traffic in one go (up to 100 sites).</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h1 class="text-center">Traffic Analytics</h1>
+            <p class="text-center">Explore competitors' website traffic stats, discover growth points, and amplify your marketing strategy</p>
+            <div class="text-center" style="margin-top: 20px;">
+                <p>Register to view 10 Traffic Overview reports per day</p>
+                <a href="#" class="btn">Register (Free)</a>
+                <a href="#" class="btn btn-outline" style="margin-left: 10px;">Log in</a>
+            </div>
+        </div>
+    </div>
+</main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Traffic Chart
+        const trafficCtx = document.getElementById('trafficChart').getContext('2d');
+        new Chart(trafficCtx, {
+            type: 'line',
+            data: {
+                labels: ['Sep 1', 'Sep 15', 'Oct 2', 'Oct 16', 'Nov 1', 'Nov 15'],
+                datasets: [{
+                    label: 'Direct',
+                    data: [65, 59, 80, 81, 56, 55],
+                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'Organic Search',
+                    data: [28, 48, 40, 19, 86, 27],
+                    borderColor: 'rgb(54, 162, 235)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Website Traffic Over Time',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        }
+                    },
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Channels Chart
+        const channelsCtx = document.getElementById('channelsChart').getContext('2d');
+        new Chart(channelsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Direct', 'Organic Search', 'Paid Search', 'Social', 'Email', 'Referral'],
+                datasets: [{
+                    label: 'Traffic by Channel',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(153, 102, 255, 0.8)',
+                        'rgba(255, 159, 64, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1,
+                    borderRadius: 5,
+                    maxBarThickness: 50
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Traffic by Channel',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        }
+                    },
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Geo Map
+        const map = L.map('geoMap').setView([20, 0], 2);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+           
+            maxZoom: 19
+        }).addTo(map);
+
+        // Sample data for the map
+        const countries = [
+            {name: 'United States', lat: 37.0902, lon: -95.7129, traffic: 1000000},
+            {name: 'United Kingdom', lat: 55.3781, lon: -3.4360, traffic: 500000},
+            {name: 'Germany', lat: 51.1657, lon: 10.4515, traffic: 750000},
+            {name: 'Japan', lat: 36.2048, lon: 138.2529, traffic: 600000},
+            {name: 'Australia', lat: -25.2744, lon: 133.7751, traffic: 300000},
+            {name: 'Brazil', lat: -14.2350, lon: -51.9253, traffic: 450000},
+            {name: 'India', lat: 20.5937, lon: 78.9629, traffic: 800000},
+            {name: 'South Africa', lat: -30.5595, lon: 22.9375, traffic: 200000},
+            {name: 'Canada', lat: 56.1304, lon: -106.3468, traffic: 350000},
+            {name: 'China', lat: 35.8617, lon: 104.1954, traffic: 900000}
+        ];
+
+        const getColor = (traffic) => {
+            return traffic > 800000 ? '#de2d26' :
+                   traffic > 600000 ? '#fc9272' :
+                   traffic > 400000 ? '#fcbba1' :
+                                      '#fee0d2';
+        };
+
+        countries.forEach(country => {
+            L.circle([country.lat, country.lon], {
+                color: getColor(country.traffic),
+                fillColor: getColor(country.traffic),
+                fillOpacity: 0.7,
+                radius: Math.sqrt(country.traffic) * 50
+            }).addTo(map).bindPopup(`
+                <strong>${country.name}</strong><br>
+                Traffic: ${country.traffic.toLocaleString()} visits
+            `);
+        });
+
+    
+</script>
+</body>
+</html>
+

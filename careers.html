@@ -1,0 +1,814 @@
+
+ <html lang="en">
+ <head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Careers A2IK Global Solutions - IT Consulting</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+     <link rel="stylesheet" href="styles.css">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Slab:wght@400;700&family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        
+/* carrier */
+.careers{
+    background-color: #0097a7;
+  }
+  .career-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+  }
+  
+  
+  .section-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    color: #1a237e;
+    margin-bottom: 40px;
+  }
+  
+  .career-intro {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+  }
+  
+  .career-intro p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .career-section  .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #1a237e;
+    color: #ffffff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0e1442;
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    background-color: #00bcd4;
+    color: #ffffff;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+  }
+  
+  .job-openings {
+    margin-bottom: 80px;
+  }
+  
+  .job-openings h3 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .job-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  .job-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .job-card h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a237e;
+    margin-bottom: 10px;
+  }
+  
+  .job-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .job-link {
+    color: #00bcd4;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .job-link:hover {
+    color: #1a237e;
+  }
+  
+  .benefits-section {
+    margin-bottom: 80px;
+  }
+  
+  .benefits-section h3 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+  }
+  
+  .benefit-card {
+    text-align: center;
+  }
+  
+  .benefit-icon {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .benefit-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .culture-section {
+    background-color: #ffffff;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 80px;
+  }
+  
+  .culture-section h3 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .culture-section p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .culture-image {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .employee-spotlight {
+    background-color: #1a237e;
+    color: #ffffff;
+    padding: 60px;
+    border-radius: 10px;
+    margin-bottom: 80px;
+  }
+  
+  .employee-spotlight h3 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .employee-spotlight blockquote {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  
+  .quote-author {
+    text-align: right;
+    font-weight: 600;
+  }
+  
+  .career-cta {
+    text-align: center;
+  }
+  
+  .career-cta h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .career-cta p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  @media (max-width: 768px) {
+    .job-grid, .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+  
+    .culture-section, .employee-spotlight {
+        padding: 30px;
+    }
+  }
+  
+/* Job Boards Section */
+#job-boards{
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 40px;
+    margin-bottom: 60px;
+    
+}
+.job-boards {
+  margin-bottom: 60px;
+  
+}
+
+.job-board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.job-board-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.job-board-card:hover {
+  background-color: #e9ecef;
+  transform: translateY(-5px);
+}
+
+.job-board-card h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.job-board-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Job Description Section */
+.job-description {
+  display: none;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 40px;
+  margin-bottom: 60px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.job-description h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.job-description h5 {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.job-description ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.job-description li {
+  margin-bottom: 5px;
+}
+
+/* Apply Job Section */
+.apply-job {
+  display: none;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 40px;
+  margin-bottom: 60px;
+}
+
+.job-application-form {
+  display: grid;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #1a237e;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0e1442;
+}
+
+.btn-secondary {
+  background-color: #00bcd4;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #0097a7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .job-board-grid {
+      grid-template-columns: 1fr;
+  }
+
+  .job-description,
+  .apply-job {
+      padding: 20px;
+  }
+}
+  /* job search*/
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.head {
+    background: linear-gradient(135deg, #006699 0%, #004466 100%);
+    padding: 2rem 0;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.head h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+}
+
+.search-button {
+    background-color: #00ccbb;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 20px;
+}
+
+.title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.filters {
+    margin-bottom: 2rem;
+}
+
+.filter-section {
+    margin-bottom: 1.5rem;
+}
+
+.filter-title {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    padding: 8px 16px;
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.jobs-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.jobs-table th {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 2px solid #eee;
+}
+
+.jobs-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.load-more {
+    display: block;
+    margin: 2rem auto;
+    padding: 10px 30px;
+    background: none;
+    border: 1px solid #000;
+    border-radius: 25px;
+    cursor: pointer;
+}
+  
+    </style>
+    </head>
+ <body data-scroll-container>
+     <header data-scroll-section>
+         <nav>
+             <div class="logo">A2IK Global Solutions</div>
+             <ul class="nav-links">
+                 <li><a href="#home">Home</a></li>
+                 <li><a href="#services">Services</a></li>
+                 <li><a href="#about">About</a></li>
+                 <li><a href="#team">Team</a></li>
+                 <li><a href="#process">Process</a></li>
+                 <li><a href="#testimonials">Testimonials</a></li>
+                 <li><a href="#partners">Partners</a></li>
+                 <li><a href="#blog">Blog</a></li>
+                 <li><a href="#contact">Contact</a></li>
+             </ul>
+             <div class="burger">
+                 <div class="line1"></div>
+                 <div class="line2"></div>
+                 <div class="line3"></div>
+             </div>
+         </nav>
+     </header>
+     <main>
+         <section id="careers" class="parallax-section" data-scroll-section>
+             <div class="container" >
+                 <h2 class="section-title">Join Our Team</h2>
+                 
+                 <!-- Job Boards Section -->
+                 <div id="job-boards" class="apply-job2" >
+                     <h3>Explore Our Job Boards</h3>
+                     <div class="job-board-grid" >
+                         <a href="#" class="job-board-card">
+                             <h4>Technology</h4>
+                             <p>15 open positions</p>
+                         </a>
+                         <a href="#" class="job-board-card">
+                             <h4>Sales & Marketing</h4>
+                             <p>8 open positions</p>
+                         </a>
+                         <a href="#" class="job-board-card">
+                             <h4>Operations</h4>
+                             <p>5 open positions</p>
+                         </a>
+                         <a href="#" class="job-board-card">
+                             <h4>Human Resources</h4>
+                             <p>3 open positions</p>
+                         </a>
+                     </div>
+                 </div>
+ 
+
+               
+                   <div class="head">  
+                  <h1>Job Search</h1>
+                  <div class="search-container">
+                      <input type="text" class="search-input" placeholder="Software">
+                      <button class="search-button">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"/>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                          </svg>
+                      </button>
+                  </div>
+                </div>
+              <h2 class="title">Rewrite your future. Search and apply for a job today.</h2>
+        
+              <div class="main-content ">
+              <div class="filters">
+                  <h3 class="filter-title">Filters</h3>
+                  <div class="filter-buttons">
+                      <button class="filter-button">
+                          Location
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M6 9l6 6 6-6"/>
+                          </svg>
+                      </button>
+                      <button class="filter-button">
+                          Experience Level
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M6 9l6 6 6-6"/>
+                          </svg>
+                      </button>
+                      <button class="filter-button">
+                          Contract Type
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M6 9l6 6 6-6"/>
+                          </svg>
+                      </button>
+                      <button class="filter-button">
+                          Professional communities
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M6 9l6 6 6-6"/>
+                          </svg>
+                      </button>
+                      <button class="filter-button">
+                          Brands
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M6 9l6 6 6-6"/>
+                          </svg>
+                      </button>
+                  </div>
+              </div>
+      
+              <table class="jobs-table">
+                  <thead>
+                      <tr>
+                          <th>Job name</th>
+                          <th>Location</th>
+                          <th>Experience level</th>
+                          <th>Contract Type</th>
+                          <th>Professional communities</th>
+                          <th>Brand</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>.Net Developer</td>
+                          <td>Noida</td>
+                          <td>Experienced Professionals</td>
+                          <td>Permanent</td>
+                          <td>Software Engineering</td>
+                          <td>A2Ik</td>
+                      </tr>
+                      <tr>
+                          <td>MainFrame Developer</td>
+                          <td>Pune</td>
+                          <td>Experienced Professionals</td>
+                          <td>Permanent</td>
+                          <td>Software Engineering</td>
+                          <td>A2Ik</td>
+                      </tr>
+                      <!-- Add more rows as needed -->
+                  </tbody>
+              </table>
+      
+              <button class="load-more">Load More</button>
+            </div>
+                
+                 <div class="benefits-section">
+                    <h3>Why Work With Us?</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">❤️</div>
+                            <h4>Comprehensive Health Coverage</h4>
+                        </div>  
+                        <div class="benefit-card">
+                            <div class="benefit-icon">🏠</div>
+                            <h4>Flexible Work Environment</h4>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">⚖️</div>
+                            <h4>Work-Life Balance</h4>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">🎓</div>
+                            <h4>Continuous Learning Opportunities</h4>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                 <div id="job-openings" class="job-openings">
+                     <h3>Current Job Openings</h3>
+                     <div class="job-grid">
+                         <div class="job-card">
+                             <h4>Senior Cloud Architect</h4>
+                             <p>Cloud Solutions | Remote</p>
+                             <a href="#" class="job-link" data-job-id="1">Learn More</a>
+                         </div>
+                         <div class="job-card">
+                             <h4>Cybersecurity Analyst</h4>
+                             <p>Security | New York, NY</p>
+                             <a href="#" class="job-link" data-job-id="2">Learn More</a>
+                         </div>
+                         <div class="job-card">
+                             <h4>Full Stack Developer</h4>
+                             <p>Software Development | San Francisco, CA</p>
+                             <a href="#" class="job-link" data-job-id="3">Learn More</a>
+                         </div>
+                         <div class="job-card">
+                             <h4>IT Project Manager</h4>
+                             <p>Project Management | Chicago, IL</p>
+                             <a href="#" class="job-link" data-job-id="4">Learn More</a>
+                         </div>
+                     </div>
+                 </div>
+ 
+                 <!-- Job Description Section -->
+                 <div id="job-description" class="job-description" style="display: none;">
+                     <h3>Job Description</h3>
+                     <div class="job-description-content">
+                         <h4 id="job-title">Senior Cloud Architect</h4>
+                         <p id="job-location">Location: Remote</p>
+                         <h5>About the Role:</h5>
+                         <p id="job-about">We are seeking an experienced Senior Cloud Architect to lead our cloud initiatives and drive innovation in our technology stack.</p>
+                         <h5>Responsibilities:</h5>
+                         <ul id="job-responsibilities">
+                             <li>Design and implement scalable cloud architecture solutions</li>
+                             <li>Lead migration efforts from on-premise to cloud environments</li>
+                             <li>Optimize cloud infrastructure for performance and cost-efficiency</li>
+                             <li>Collaborate with cross-functional teams to align cloud strategy with business goals</li>
+                         </ul>
+                         <h5>Requirements:</h5>
+                         <ul id="job-requirements">
+                             <li>7+ years of experience in cloud architecture and implementation</li>
+                             <li>Strong expertise in AWS, Azure, or Google Cloud Platform</li>
+                             <li>Experience with containerization and orchestration technologies</li>
+                             <li>Excellent communication and leadership skills</li>
+                         </ul>
+                         <a href="#apply-job" class="btn btn-primary">Apply Now</a>
+                     </div>
+                 </div>
+ 
+
+
+                 <!-- Apply Job Section -->
+                 <div id="apply-job" class="apply-job" style="display: none;">
+                     <h3>Apply for This Position</h3>
+                     <form id="job-application-form" class="job-application-form">
+                         <div class="form-group">
+                             <label for="full-name">Full Name</label>
+                             <input type="text" id="full-name" name="full-name" required>
+                         </div>
+                         <div class="form-group">
+                             <label for="email">Email</label>
+                             <input type="email" id="email" name="email" required>
+                         </div>
+                         <div class="form-group">
+                             <label for="phone">Phone</label>
+                             <input type="tel" id="phone" name="phone" required>
+                         </div>
+                         <div class="form-group">
+                             <label for="resume">Resume</label>
+                             <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                         </div>
+                         <div class="form-group">
+                             <label for="cover-letter">Cover Letter</label>
+                             <textarea id="cover-letter" name="cover-letter" rows="5" required></textarea>
+                         </div>
+                         <button type="submit" class="btn btn-primary">Submit Application</button>
+                     </form>
+                 </div>
+ 
+                
+ 
+                 <div class="culture-section">
+                     <h3>Our Culture</h3>
+                     <p>At A2IK Global Solutions, we foster a culture of innovation, collaboration, and continuous learning. Our diverse team of experts works together to solve complex challenges and deliver cutting-edge solutions. We believe in empowering our employees, celebrating their achievements, and providing opportunities for growth and development.</p>
+                     <img src="https://c8.alamy.com/comp/EN7261/teamwork-team-together-collaboration-meeting-office-brainstorming-EN7261.jpg" alt="Team collaboration" class="culture-image">
+                 </div>
+ 
+                 <div class="employee-spotlight">
+                     <h3>Employee Spotlight</h3>
+                     <blockquote>
+                         "Working at A2IK Global Solutions has been an incredible journey. The supportive environment, challenging projects, and opportunities for growth have helped me develop both personally and professionally. I'm proud to be part of a team that's making a real difference in the world of technology."
+                     </blockquote>
+                     <p class="quote-author">- Sarah Johnson, Senior Software Engineer</p>
+                 </div>
+ 
+                 <div class="career-cta">
+                     <h3>Ready to Join Us?</h3>
+                     <p>Explore our current openings and take the first step towards an exciting career at A2IK Global Solutions.</p>
+                     <a href="#job-boards" class="btn btn-secondary">View All Positions</a>
+                 </div>
+             </div>
+         </section>
+     </main>
+ 
+     <footer data-scroll-section>
+         <p>&copy; 2023 A2IK Global Solutions. All rights reserved.</p>
+     </footer>
+ 
+     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+     <script src="script.js"></script>
+     
+    <script>
+      // Add click handlers for filter buttons
+      document.querySelectorAll('.filter-button').forEach(button => {
+          button.addEventListener('click', () => {
+              // Add filter dropdown logic here
+              console.log('Filter clicked:', button.textContent.trim());
+          });
+      });
+
+      // Add click handler for load more button
+      document.querySelector('.load-more').addEventListener('click', () => {
+          // Add load more logic here
+          console.log('Load more clicked');
+      });
+
+      // Add search functionality
+      document.querySelector('.search-button').addEventListener('click', () => {
+          const searchTerm = document.querySelector('.search-input').value;
+          // Add search logic here
+          console.log('Search term:', searchTerm);
+      });
+  </script>
+ </body>
+ </html>

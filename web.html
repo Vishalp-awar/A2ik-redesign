@@ -1,0 +1,1234 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A2IK Global Solutions - Website Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: #000000;
+            --text: #ffffff;
+            --accent: #00ff00;
+            --secondary: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--background);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--text);
+            color: var(--background);
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background-color: var(--secondary);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        footer {
+            background-color: var(--secondary);
+            color: var(--text);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .section h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">A2IK</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Website Analytics Reimagined</h1>
+                <p>Unlock the full potential of your online presence with cutting-edge analytics</p>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </section>
+
+        <section id="features" class="section">
+            <div class="container">
+                <h2>Our Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3>Real-time Tracking</h3>
+                        <p>Monitor your website's performance as it happens</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>AI-Powered Insights</h3>
+                        <p>Gain valuable insights with our advanced AI algorithms</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Custom Dashboards</h3>
+                        <p>Create personalized dashboards tailored to your needs</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Predictive Analytics</h3>
+                        <p>Forecast future trends and make data-driven decisions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>A2IK Global Solutions is at the forefront of website analytics technology. We provide cutting-edge tools and insights to help businesses optimize their online presence and drive growth.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p>Ready to take your website analytics to the next level? Contact us today to learn more about our services and how we can help your business succeed online.</p>
+                <a href="mailto:info@a2ik.com" class="cta-button">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 A2IK Global Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script>
+        // Three.js background
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        const geometry = new THREE.BufferGeometry();
+        const vertices = [];
+        for (let i = 0; i < 10000; i++) {
+            vertices.push(THREE.MathUtils.randFloatSpread(2000));
+            vertices.push(THREE.MathUtils.randFloatSpread(2000));
+            vertices.push(THREE.MathUtils.randFloatSpread(2000));
+        }
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        const particles = new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0x00ff00, size: 2 }));
+        scene.add(particles);
+
+        camera.position.z = 1000;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            particles.rotation.x += 0.0005;
+            particles.rotation.y += 0.0005;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero section animations
+        gsap.from('.hero-content h1', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: 0.5
+        });
+
+        gsap.from('.hero-content p', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: 0.7
+        });
+
+        gsap.from('.hero-content .cta-button', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: 0.9
+        });
+
+        // Scroll animations
+        gsap.utils.toArray('.section').forEach(section => {
+            gsap.from(section, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                    end: 'top 20%',
+                    scrub: 1
+                }
+            });
+        });
+
+        // Feature items animation
+        gsap.utils.toArray('.feature-item').forEach((item, index) => {
+            gsap.from(item, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 80%',
+                    end: 'top 20%',
+                    scrub: 1
+                },
+                delay: index * 0.2
+            });
+        });
+
+        // Resize event listener
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            ScrollTrigger.refresh();
+        });
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A2IK Global Solutions - Website Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #47e2f7;
+            --accent-color: #ff4081;
+            --background-color: #f5f5f5;
+            --text-color: #212121;
+            --light-text: #ffffff;
+
+            --dark-blue: #0B0F1E;
+            --blue: #007BFF;
+            --white: #ffffff;
+            --gray: #8A8F98;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background-color: var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light-text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            color: var(--primary-color);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background-color: var(--light-text);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .testimonial {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial p {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+        }
+
+        .pricing {
+            background-color: var(--background-color);
+            padding: 100px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-item {
+            background-color: var(--light-text);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .section h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+
+
+        * {
+            
+        }
+
+       
+        .container1 {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        .header1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .header1 h2 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .view-all {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .view-all:hover {
+            background-color: #0056b3;
+        }
+
+        .view-all::after {
+            content: '→';
+            transition: var(--transition);
+        }
+
+        .view-all:hover::after {
+            transform: translateX(4px);
+        }
+
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .case-study {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .case-study:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .case-study img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .case-study-content {
+            padding: 1.5rem;
+        }
+
+        .case-study h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .meta {
+            margin: 1rem 0;
+        }
+
+        .client, .services, .industries {
+            margin-bottom: 0.5rem;
+        }
+
+        .label {
+            color: var(--gray);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .value {
+            font-size: 0.875rem;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--blue);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .read-more:hover::after {
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .case-studies {
+                grid-template-columns: 1fr;
+            }
+        }
+        .contact-section {
+    background-color: var(--dark-blue);
+    padding: 0;
+    margin-top: 4rem;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+.contact-left {
+    background-color: var(--blue);
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-icon {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
+
+.contact-left h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.contact-left h3 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.contact-left p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.contact-right {
+    background-color: #f8f9fa;
+    padding: 4rem;
+    color: var(--dark-blue);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-top: 0.25rem;
+}
+
+.checkbox-group label {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+.submit-btn {
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 968px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-left {
+        padding: 3rem 2rem;
+    }
+
+    .contact-left h3 {
+        font-size: 2rem;
+    }
+
+    .contact-right {
+        padding: 3rem 2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">A2IK</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Website Analytics</h1>
+                <p>Unlock the full potential of your online presence with cutting-edge analytics</p>
+                
+            </div>
+        </section>
+
+        <section id="features" class="section">
+            <div class="container">
+                <h2>Our Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3>Real-time Tracking</h3>
+                        <p>Monitor your website's performance as it happens with our advanced real-time tracking system.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>AI-Powered Insights</h3>
+                        <p>Gain valuable insights with our advanced AI algorithms that analyze your data and provide actionable recommendations.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Custom Dashboards</h3>
+                        <p>Create personalized dashboards tailored to your specific needs and KPIs for easy monitoring and reporting.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Predictive Analytics</h3>
+                        <p>Forecast future trends and make data-driven decisions with our cutting-edge predictive analytics tools.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="container1">
+            <div class="header1">
+                <h2>Website analytics case studies</h2>
+                <a href="#" class="view-all">View our work</a>
+            </div>
+    
+            <div class="case-studies">
+                <article class="case-study">
+                    <img src="https://backend.ymc.services/assets/738a8b7a-14f1-43fb-afe2-00288de3d22b?withoutEnlargement=true&quality=80&format=webp&width=464" alt="Airline website interface">
+                    <div class="case-study-content">
+                        <h3>Integrated Website strategy achieves 600% increase in sales for new Airline</h3>
+                        <div class="meta">
+                            <div class="client">
+                                <div class="label">Client</div>
+                                <div class="value">Norse</div>
+                            </div>
+                            <div class="services">
+                                <div class="label">Services</div>
+                                <div class="value">Analytics, CRO, Paid Media, SEO, Strategy</div>
+                            </div>
+                            <div class="industries">
+                                <div class="label">Industries</div>
+                                <div class="value">Travel</div>
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">Read Full Case Study</a>
+                    </div>
+                </article>
+    
+                <article class="case-study">
+                    <img src="https://backend.ymc.services/assets/2c3b596b-fc27-4d9a-8788-d51c6a62ada7?withoutEnlargement=true&quality=80&format=webp&width=464" alt="Lotus car">
+                    <div class="case-study-content">
+                        <h3>185% increase in revenue over 5-year partnership</h3>
+                        <div class="meta">
+                            <div class="client">
+                                <div class="label">Client</div>
+                                <div class="value">Lotus Cars</div>
+                            </div>
+                            <div class="services">
+                                <div class="label">Services</div>
+                                <div class="value">Digital PR, Paid Media, SEO, Strategy</div>
+                            </div>
+                            <div class="industries">
+                                <div class="label">Industries</div>
+                                <div class="value">Automotive, Travel</div>
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">Read Full Case Study</a>
+                    </div>
+                </article>
+    
+                <article class="case-study">
+                    <img src="https://backend.ymc.services/assets/2b32b298-2eef-4998-8b21-a550bcc5673c?withoutEnlargement=true&quality=80&format=webp&width=464" alt="Social media analytics dashboard">
+                    <div class="case-study-content">
+                        <h3>Incrementality test proves the value of social media advertising</h3>
+                        <div class="meta">
+                            <div class="client">
+                                <div class="label">Client</div>
+                                <div class="value">Norse</div>
+                            </div>
+                            <div class="services">
+                                <div class="label">Services</div>
+                                <div class="value">Measurement</div>
+                            </div>
+                            <div class="industries">
+                                <div class="label">Industries</div>
+                                <div class="value">Travel</div>
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">Read Full Case Study</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        
+
+        <section class="testimonial">
+            <div class="container">
+                <div class="testimonial-content">
+                    <p>"A2IK Global Solutions has transformed the way we approach our website analytics. Their insights have been invaluable in driving our online growth."</p>
+                    <p class="testimonial-author">- Jane Doe, CEO of TechCorp</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- <section id="about" class="section">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>A2IK Global Solutions is at the forefront of website analytics technology. We provide cutting-edge tools and insights to help businesses optimize their online presence and drive growth. Our team of experts combines deep industry knowledge with advanced AI and machine learning techniques to deliver unparalleled analytics solutions.</p>
+                <p>Founded in 2015, we've helped over 1000 businesses across various industries improve their online performance and achieve their goals. Our commitment to innovation and customer success has made us a trusted partner for companies of all sizes, from startups to Fortune 500 corporations.</p>
+            </div>
+        </section> -->
+
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <h2>Pricing Plans</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-item">
+                        <h3>Starter</h3>
+                        <p class="price">$49/mo</p>
+                        <ul>
+                            <li>Real-time tracking</li>
+                            <li>Basic AI insights</li>
+                            <li>1 custom dashboard</li>
+                            <li>Email support</li>
+                        </ul>
+                        <a href="#" class="cta-button">Choose Plan</a>
+                    </div>
+                    <div class="pricing-item">
+                        <h3>Pro</h3>
+                        <p class="price">$99/mo</p>
+                        <ul>
+                            <li>Everything in Starter</li>
+                            <li>Advanced AI insights</li>
+                            <li>5 custom dashboards</li>
+                            <li>Predictive analytics</li>
+                            <li>Priority support</li>
+                        </ul>
+                        <a href="#" class="cta-button">Choose Plan</a>
+                    </div>
+                    <div class="pricing-item">
+                        <h3>Enterprise</h3>
+                        <p class="price">Custom</p>
+                        <ul>
+                            <li>Everything in Pro</li>
+                            <li>Unlimited custom dashboards</li>
+                            <li>Dedicated account manager</li>
+                            <li>Custom integrations</li>
+                            <li>24/7 premium support</li>
+                        </ul>
+                        <a href="#" class="cta-button">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="contact-left">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M15 12H12V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h2>TALK TO AN EXPERT</h2>
+                    <h3>Find out what our web analytics consultants can do for your business</h3>
+                    <p>Fill out the form, give us a call or drop us an email. We look forward to hearing from you.</p>
+                </div>
+                <div class="contact-right">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First name*</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last name*</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email*</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone number*</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="company">Company name*</label>
+                                <input type="text" id="company" name="company" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="website">Website URL*</label>
+                                <input type="url" id="website" name="website" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message*</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="source">How did you hear about us?</label>
+                            <select id="source" name="source">
+                                <option value="">Please select</option>
+                                <option value="search">Search Engine</option>
+                                <option value="social">Social Media</option>
+                                <option value="referral">Referral</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">
+                                Impression is committed to protecting and respecting your privacy. By clicking submit below, you consent to allow Impression to store and process the personal information submitted above to provide you the content requested.
+                            </label>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 A2IK Global Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script>
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero section animations
+        gsap.from('.hero-content h1', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: 0.5
+        });
+
+        gsap.from('.hero-content p', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: 0.7
+        });
+
+        gsap.from('.hero-content .cta-button', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: 0.9
+        });
+
+        // Scroll animations
+        gsap.utils.toArray('.section').forEach(section => {
+            gsap.from(section, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                    end: 'top 20%',
+                    scrub: 1
+                }
+            });
+        });
+
+        // Feature items animation
+        gsap.utils.toArray('.feature-item').forEach((item, index) => {
+            gsap.from(item, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 80%',
+                    end: 'top 20%',
+                    scrub: 1
+                },
+                delay: index * 0.2
+            });
+        });
+
+        // Pricing items animation
+        gsap.utils.toArray('.pricing-item').forEach((item, index) => {
+            gsap.from(item, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 80%',
+                    end: 'top 20%',
+                    scrub: 1
+                },
+                delay: index * 0.2
+            });
+        });
+
+        // Resize event listener
+        window.addEventListener('resize', () => {
+            ScrollTrigger.refresh();
+        });
+    </script>
+</body>
+</html>
